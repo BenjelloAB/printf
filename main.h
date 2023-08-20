@@ -21,11 +21,6 @@ typedef struct identifiers print_t;
 void print_char(va_list list, int *count);
 void print_str(va_list list, int *count);
 
-/* table hodling the symbols an their corseponding functions */
-print_t specifiers[] = {
-	{"c", print_char},
-	{"s", print_str}
-};
 
 int _printf(const char *format, ...);
 

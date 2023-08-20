@@ -12,6 +12,11 @@ int _printf(const char *format, ...)
 {
 	int i = 0, j = 0, count = 0;
 
+	print_t specifiers[] = {
+		{"c", print_char},
+		{"s", print_str}
+	};
+
 	va_list list;
 
 	if (format == NULL)
@@ -24,7 +29,7 @@ int _printf(const char *format, ...)
 		{
 			if (format[i] == '%' && format[i + 1] == *(specifiers[j].symbol))
 			{
-				specifiers[j].printer(list, &count);
+
 				i += 2;
 				break;
 			}
