@@ -24,6 +24,7 @@ int print_str(va_list list, int *count);
 
 int _printf(const char *format, ...);
 
+extern print_t specifiers[];
 
 
 #endif
