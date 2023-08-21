@@ -84,6 +84,8 @@ int _printf(const char *format, ...)
 			if (format[i] == '%' && format[i + 1] == *(specifiers[j].symbol))
 			{
 				si = specifiers[j].printer(list, &count);
+				if (!si)
+					return (-1);
 				i += 2;
 				break;
 			}
