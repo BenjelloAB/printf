@@ -17,6 +17,14 @@ int _printf(const char *format, ...)
 	i = 0;
 	count = 0;
 	n = counter(format);
+	/*added*/
+	if (format == NULL)
+		return (-1);
+	if (format[0] == '%' && format[1] == '\0')
+		return (-1);
+	if (format[0] == '%' && format[1] == NULL)
+		return (-1);
+	/*added*/
 	if (n == 0)
 	{
 		print_str((char *)format, &count);
