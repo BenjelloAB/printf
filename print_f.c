@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 			_printer(format, ptr, ++i, &count);
-		else
+	else
 			print_char(format[i], &count);
 		i++;
 	}
