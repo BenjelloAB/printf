@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 /**
- * checker_empty - checks for empty slots after %
+ * checker_empty - checks for empty slots after '%'
  * @s: pointer to the current element in the variadic list
  * Return: int
  */
@@ -28,8 +28,9 @@ int checker_empty(const char *s)
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, j = 0, count = 0, si, si2, bo_ol = 0;
+	int i = 0, j = 0, count = 0, si2, bo_ol = 0, si;
 
+	
 	print_t specifiers[] = {
 		{"c", print_char},
 		{"s", print_str}

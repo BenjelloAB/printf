@@ -11,15 +11,15 @@
 struct identifiers
 {
 	char *symbol;
-	void (*printer)(va_list, int *);
+	int (*printer)(va_list, int *);
 };
 /**
  * print_t - Typedef for strcut identifiers
  */
 typedef struct identifiers print_t;
 
-void print_char(va_list list, int *count);
-void print_str(va_list list, int *count);
+int print_char(va_list list, int *count);
+int print_str(va_list list, int *count);
 
 
 int _printf(const char *format, ...);
