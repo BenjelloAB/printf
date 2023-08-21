@@ -1,23 +1,28 @@
 #include "main.h"
 
-int    counter(const char *s)
+/**
+ * counter - function
+ * @s: pointer to string
+ * Return: int
+ */
+int counter(const char *s)
 {
-    int i;
-    int n;
+	int i;
 
-    i = 0;
-    n = 0;
-    if (s[i] == '%')
-    {
-        n++;
-        i++;
-    }
-    while (s[i])
-    {
-        if (s[i] == '%' && s[i - 1] != '%')
-            n++;
-            i++;
-    }
-    return (n);
+	int n;
+
+	i = 0;
+	n = 0;
+	if (s[i] == '%')
+	{
+		n++;
+		i++;
+	}
+	while (s[i])
+	{
+		if (s[i] == '%' && s[i - 1] != '%')
+			n++;
+		i++;
+	}
+	return (n);
 }
-
