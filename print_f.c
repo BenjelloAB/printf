@@ -16,15 +16,19 @@ int _printf(const char *format, ...)
 	i = 0;
 	count = 0;
 	n = counter(format);
+	/*added*/
+	if (format[0] == '%' && format[1] == '\0')
+		return (0);
+	if ((format[0] == '%' && !format[1]) || !format)
+		return (-1);
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
+	/*added*/
 	if (n == 0)
 	{
 		print_str((char *)format, &count);
 		return (count);
 	}
-	if (!format || (format[0] == '%' && !format[1]))
-		return (-1);
-	if (!format[i])
-		return (0);
 	va_start(ptr, format);
 	while (format[i])
 	{
