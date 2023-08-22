@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 	if (!format[i])
-		return (-1);
+		return (0);
 	va_start(ptr, format);
 	while (format[i])
 	{
