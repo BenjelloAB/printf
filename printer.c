@@ -1,4 +1,17 @@
 #include "main.h"
+
+/**
+ * inside - checks if the char match a format specifier
+ * @s: pointer to the curr format string
+ * @i: integer for the current index
+ * Return: int
+ */
+int inside(const char *s)
+{
+	if (s[0] == 's' || s[0] == 'c' || s[0] == 'd' || s[0] == 'i')
+		return (1);
+	return (0);
+}
 /**
  * checker_empty - function thaat prints according to spec
  * @s: pointer to the given string
@@ -26,7 +39,7 @@ int checker_empty(const char *s)
  */
 int _printer(const char *s, va_list ptr, int *i, int *count)
 {
-	int sk;
+	int sk, ins, k;
 
 	if (s[*i] == 'c')
 		print_char(va_arg(ptr, int), count);
@@ -42,15 +55,23 @@ int _printer(const char *s, va_list ptr, int *i, int *count)
 		sk = checker_empty(&s[(*i) + 1]);
 		if (sk != -1)
 		{
-			*i =  (*i) + sk + 1;
-			_printer(s, ptr, i, count);
+			*i = (*i) + sk + 1;
+			k = *i;
+			ins = inside(&s[k]);
+			if (ins == 1)
+				_printer(s, ptr, i, count);
+			else
+			{
+				print_char('%', count);
+				_printer(s, ptr, i, count);
+			}
 		}
 		else
 			return (-1);
 	}
 	else
 	{
-		print_char(s[(*i) - 1], count - 1);
+		print_char(s[(*i) - 1], count);
 		print_char(s[*i], count);
 	}
 	return (1);
