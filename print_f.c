@@ -16,7 +16,13 @@ int _printf(const char *format, ...)
 	i = 0;
 	count = 0;
 	n = counter(format);
-	/*added*/
+	
+	if (n == 0)
+	{
+		print_str((char *)format, &count);
+		return (count);
+	}
+	   /*added*/
 	if (format[0] == '%' && format[1] == '\0')
 		return (0);
 	if ((format[0] == '%' && !format[1]) || !format)
@@ -24,11 +30,6 @@ int _printf(const char *format, ...)
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
 		return (-1);
 	/*added*/
-	if (n == 0)
-	{
-		print_str((char *)format, &count);
-		return (count);
-	}
 	va_start(ptr, format);
 	while (format[i])
 	{
