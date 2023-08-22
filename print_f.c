@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 		return (count);
 	}
 	   /*added*/
-	if (!format)
+	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
 	if (format[0] == '%' && format[1] == '\0')
 		return (0);
