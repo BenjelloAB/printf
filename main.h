@@ -8,7 +8,7 @@ int    _printf(const char *s, ...);
 void print_char(char c, int *count);
 void    print_nbr(int n, int *count);
 int print_str(char *str, int *count);
-void    _printer(const char *s, va_list ptr, int i, int *count);
+int _printer(const char *s, va_list ptr, int *i, int *count);
 
 
 #endif
