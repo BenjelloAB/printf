@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 		print_str((char *)format, &count);
 		return (count);
 	}
-	if (format == NULL)
+	if (!format || (format[0] == '%' && !format[1])
 		return (-1);
 	if (!format[i])
 		return (0);
