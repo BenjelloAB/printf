@@ -46,7 +46,7 @@ int _printf(const char *format, ...)
 			i++;
 			sk = _printer(format, ptr, &i, &count);
 			if (sk == -1)
-				return (count);
+				return (-1);
 		}
 		else
 			print_char(format[i], &count);
