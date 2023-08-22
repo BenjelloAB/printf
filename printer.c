@@ -49,6 +49,9 @@ int _printer(const char *s, va_list ptr, int *i, int *count)
 			return (-1);
 	}
 	else
+	{
+		print_char(s[(*i) - 1], count - 1);
 		print_char(s[*i], count);
+	}
 	return (1);
 }
