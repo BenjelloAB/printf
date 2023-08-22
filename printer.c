@@ -3,7 +3,6 @@
 /**
  * inside - checks if the char match a format specifier
  * @s: pointer to the curr format string
- * @i: integer for the current index
  * Return: int
  */
 int inside(const char *s)
