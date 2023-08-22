@@ -15,18 +15,18 @@ int _printf(const char *format, ...)
 
 	i = 0;
 	count = 0;
-	if(!format)
+	if (!format)
 		return (-1);
-	     /*added*/
-        if (!format || (format[0] == '%' && !format[1]))
-                return (-1);
-        if (format[0] == '%' && format[1] == '\0')
-                return (-1);
-        if (format[0] == '%' && format[1] == ' ' && !format[2])
-                return (-1);
-        if (!format[i])
-                return (0);
-        /*added*/
+	/*added*/
+	if (!format || (format[0] == '%' && !format[1]))
+		return (-1);
+	if (format[0] == '%' && format[1] == '\0')
+		return (-1);
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
+	if (!format[i])
+		return (0);
+	/*added*/
 	n = counter(format);
 
 	if (n == 0)
