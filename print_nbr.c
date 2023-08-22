@@ -1,10 +1,10 @@
 #include <unistd.h>
 
 /**
- * print_nbr - prints a string
- * @n: integer
- * @count: pointer to counter
- * Return: void
+ * print_nbr - prints a string.
+ * @n: integer arg.
+ * @count: pointer to counter.
+ * Return: void.
  */
 void print_nbr(int n, int *count)
 {
