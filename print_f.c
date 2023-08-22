@@ -2,10 +2,10 @@
 int _printer(const char *s, va_list ptr, int *i, int *count);
 
 /**
- * _printf - clones printf function
- * @...: list of arguments
- * @format: pointer to char
- * Return: int
+ * _printf - clones printf function.
+ * @...: list of arguments.
+ * @format: pointer to char.
+ * Return: int.
  */
 int _printf(const char *format, ...)
 {
@@ -34,7 +34,7 @@ int _printf(const char *format, ...)
 		print_str((char *)format, &count);
 		return (count);
 	}
-	   /*added*/
+	/*added*/
 	va_start(ptr, format);
 	while (format[i])
 	{
