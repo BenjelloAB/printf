@@ -25,8 +25,6 @@ int _printf(const char *format, ...)
 	   /*added*/
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
-	if (format[0] == '%' && format[1] == '\0')
-		return (0);
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
 		return (-1);
 	if (!format[i])
