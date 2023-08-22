@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * counter - function
- * @s: pointer to string
- * Return: int
+ * counter - function.
+ * @s: pointer to string.
+ * Return: int.
  */
 int counter(const char *s)
 {
