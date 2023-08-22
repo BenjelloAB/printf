@@ -7,7 +7,7 @@ int _printer(const char *s, va_list ptr, int *i, int *count);
  * @format: pointer to char
  * Return: int
  */
-int _printf(const char *s, ...)
+int _printf(const char *format, ...)
 {
 	va_list ptr;
 
@@ -15,32 +15,34 @@ int _printf(const char *s, ...)
 
 	i = 0;
 	count = 0;
-	n = counter(s);
+	n = counter(format);
 	if (n == 0)
 	{
-		print_str((char *)s, &count);
+		print_str((char *)format, &count);
 		return (count);
 	}
-	va_start(ptr, s);
-	while (s[i])
+	if (format == NULL)
+		return (-1);
+	va_start(ptr, format);
+	while (format[i])
 	{
-		if (s[i] == '%' && s[i + 1] == '\0')
+		if (format[i] == '%' && format[i + 1] == '\0')
 			break;
-		if (s[i] == '%' && s[i + 1] == '%')
+		if (format[i] == '%' && format[i + 1] == '%')
 		{
-			print_char(s[i], &count);
+			print_char(format[i], &count);
 			i += 2;
 			continue;
 		}
-		if (s[i] == '%')
+		if (format[i] == '%')
 		{
 			i++;
-			sk = _printer(s, ptr, &i, &count);
+			sk = _printer(format, ptr, &i, &count);
 			if (sk == -1)
 				return (count);
 		}
 		else
-			print_char(s[i], &count);
+			print_char(format[i], &count);
 		i++;
 	}
 	va_end(ptr);
