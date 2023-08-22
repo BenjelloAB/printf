@@ -7,17 +7,43 @@
  * @count: pointer to the counter
  * Return: void
  */
-void _printer(const char *s, va_list ptr, int i, int *count)
+int checker_empty(const char *s)
 {
-	if (s[i] == 'c')
-		print_char(va_arg(ptr, int), count);
-	else if (s[i] == 's')
-	{
-		if (!print_str(va_arg(ptr, char *), count))
-			print_str("(null)", count);
-	}
-	else if (s[i] == 'd' || s[i] == 'i')
-		print_nbr(va_arg(ptr, int), count);
-	else
-		print_char(s[i], count);
+    int i = 0;
+
+    while (s[i] != '\0')
+    {
+        if (s[i] != ' ')
+            return (i);
+        i++;
+    }
+    return (-1);
+}
+int _printer(const char *s, va_list ptr, int *i, int *count)
+{
+    int sk;
+
+    if (s[*i] == 'c')
+        print_char(va_arg(ptr, int), count);
+    else if (s[*i] == 's')
+    {
+        if (!print_str(va_arg(ptr, char *), count))
+            print_str("(null)", count);
+    }
+    else if (s[*i] == 'd' || s[*i] == 'i')
+        print_nbr(va_arg(ptr, int), count);
+    else if(s[*i] == ' ')
+        {
+            sk = checker_empty(&s[(*i) + 1]);
+            if (sk != -1)
+            {
+                *i =  (*i) + sk + 1;
+                _printer(s, ptr, i, count);
+            }
+            else 
+                return (-1);
+        }
+    else
+        print_char(s[*i], count);
+    return(1);
 }
