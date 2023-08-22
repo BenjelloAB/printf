@@ -21,4 +21,3 @@ void _printer(const char *s, va_list ptr, int i, int *count)
 	else
 		print_char(s[i], count);
 }
-
